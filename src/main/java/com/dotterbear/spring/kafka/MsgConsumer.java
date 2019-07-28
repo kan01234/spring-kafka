@@ -10,7 +10,7 @@ public class MsgConsumer {
   private static final Logger logger = LoggerFactory.getLogger(MsgProducer.class);
 
   @KafkaListener(id = "test", topics = {"topic-test"})
-  public void listen(String data) {
+  public void listen(Data data) {
     logger.debug("receive msg: {}", data);
   }
 

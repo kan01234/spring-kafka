@@ -14,7 +14,7 @@ public class TestKafkaController {
   private final String TOPIC = "topic-test";
 
   @RequestMapping("/send")
-  public String send(String data) {
+  public String send(Data data) {
     producer.sendMessage(TOPIC, data);
     return "send" + data + " ok!";
   }

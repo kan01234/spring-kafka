@@ -11,9 +11,9 @@ public class MsgProducer {
   private static final Logger logger = LoggerFactory.getLogger(MsgProducer.class);
 
   @Autowired
-  private KafkaTemplate<Object, Object> kafkaTemplate;
+  private KafkaTemplate<String, Data> kafkaTemplate;
 
-  public void sendMessage(String topicName, String data) {
+  public void sendMessage(String topicName, Data data) {
     logger.debug("send msg, topicName: {}, data: {}", topicName, data);
     try {
       kafkaTemplate.send(topicName, data);
