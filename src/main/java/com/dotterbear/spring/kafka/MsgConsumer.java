@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MsgConsumer {
-  private static final Logger logger = LoggerFactory.getLogger(MsgProducer.class);
+  private static final Logger logger = LoggerFactory.getLogger(MsgConsumer.class);
 
-  @KafkaListener(id = "test", topics = {"topic-test"})
+  @KafkaListener(topics = {"topic-test"}, groupId="grp1")
   public void listen(Data data) {
-    logger.debug("receive msg: {}", data);
+    logger.debug("grp1 receive msg: {}", data);
   }
 
 }
