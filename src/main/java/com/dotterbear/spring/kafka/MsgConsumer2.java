@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class MsgConsumer2 {
   private static final Logger logger = LoggerFactory.getLogger(MsgConsumer2.class);
 
-  @KafkaListener(topics = {"topic-test"}, groupId="grp2")
+  @KafkaListener(topics = {"topic-test"}, groupId = "grp2", containerFactory = "kafkaListenerContainerFactory2")
   public void listen(List<Data> data) {
     logger.debug("grp2 receive msg: {}", data);
   }
